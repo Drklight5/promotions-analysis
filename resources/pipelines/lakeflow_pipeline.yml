@@ -1,0 +1,10 @@
+resources:
+  pipelines:
+    lakeflow_pipeline:
+      name: lakeflow_pipeline
+      serverless: true
+      catalog: ${var.catalog}
+      schema: ${var.schema}
+      libraries:
+        - glob:
+            include: ../../src/transformations/**
