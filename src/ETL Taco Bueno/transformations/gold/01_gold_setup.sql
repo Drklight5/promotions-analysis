@@ -1,0 +1,10 @@
+-- ════════════════════════════════════════════════════════════════
+-- Capa GOLD — Taco Bueno
+-- 01_gold_setup.sql: crea el schema que contiene las vistas
+-- materializadas de consumo. Idempotente (IF NOT EXISTS).
+-- Fuente de toda la capa gold: tacobueno.tickets.tickets_silver.
+-- ════════════════════════════════════════════════════════════════
+-- NOTE: CREATE SCHEMA is not supported inside a Spark Declarative Pipeline.
+-- The schema tacobueno.gold must be created manually before running this pipeline:
+--   CREATE SCHEMA IF NOT EXISTS tacobueno.gold
+--   COMMENT 'Capa gold: vistas materializadas de tickets y agregados de promociones.';
