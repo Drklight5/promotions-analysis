@@ -16,8 +16,8 @@
 --   * sin_ecuacion = no cumple ninguna ecuación E1-E5 (tolerancia $0.015).
 --   * periodo: P1 (< 2025-11-01), P2 (2025-11-01 a 2026-01-31), P3 (>= 2026-02-01).
 -- ════════════════════════════════════════════════════════════════
-CREATE OR REFRESH MATERIALIZED VIEW tacobueno.gold.mv_tickets_base
--- Nota: el refresco lo hace el update del pipeline SDP "ETL Taco Bueno".
+CREATE OR REPLACE MATERIALIZED VIEW tacobueno.gold.mv_tickets_base
+TRIGGER ON UPDATE AT MOST EVERY INTERVAL 1 DAY
 COMMENT 'Gold: 1 fila por ticket. Agregado de líneas de menú con banderas de calidad y promoción. Fuente: tickets_silver.'
 AS
 WITH ticket_agg AS (
